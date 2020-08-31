@@ -1,11 +1,12 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {fetchRepos} from '../actions'
-import Search from '../components/layout/Search'
+import React from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {fetchRepos} from '../actions';
+import Search from '../components/layout/Search';
 
 class Results extends React.Component{
 
+    //Initializes search results
     componentDidMount(formValues){
         const data = {
             Search: 'Tetris',
@@ -15,6 +16,7 @@ class Results extends React.Component{
         this.props.fetchRepos(data);
     }
 
+    //Takes the owners login information and repository name and creates a page slug 
     loginLink = (login,name) => {
         console.log(login,name)
         if(!login){
@@ -29,6 +31,8 @@ class Results extends React.Component{
             )
         }
     }
+
+    //Render results of each Repository
     renderResults(){
         if(!this.props.github.length){
             return(
@@ -70,10 +74,11 @@ class Results extends React.Component{
     }
 }
 
+//Grabs state out of github piece of state
 const mapStateToProps = (state) => {
     return{
         github: state.github
     }
 }
 
-export default connect(mapStateToProps, {fetchRepos})(Results)
+export default connect(mapStateToProps, {fetchRepos})(Results);

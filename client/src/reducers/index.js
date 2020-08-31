@@ -5,4 +5,4 @@ import githubReducer from './githubReducer'
 export default combineReducers({
     github: githubReducer,
     form: formReducer
-})
+});

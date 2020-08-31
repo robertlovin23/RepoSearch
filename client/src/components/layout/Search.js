@@ -1,10 +1,11 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {fetchRepos} from '../../actions/index'
-import { Field, reduxForm } from 'redux-form'
+import React from 'react';
+import {connect} from 'react-redux';
+import {fetchRepos} from '../../actions/index';
+import { Field, reduxForm } from 'redux-form';
 
 class Search extends React.Component{
 
+    //Redux form error if no value filled
     renderError({error,touched}){
         if(touched && error){
             return(
@@ -14,6 +15,7 @@ class Search extends React.Component{
             )
         }
     }
+    //Repository name input
     renderInput = ({input, label, meta}) => {
         const className = `field ${meta.error && meta.touched ? 'error': ''}`;
         return( 
@@ -24,7 +26,8 @@ class Search extends React.Component{
             </div>   
         )
     }
-    renderDropdown = ({input, label, meta}) => {
+    //Repository label dropdown
+    renderDropdown = ({input}) => {
         return(
             <div style={{marginBottom: "10px"}}>
                 <select {...input}>
@@ -49,12 +52,14 @@ class Search extends React.Component{
             </div>
         )
     }
+
     onSubmit = (formValues) => {
         console.log(formValues)
         this.props.fetchRepos(formValues);
 
     }
 
+    //Render redux form components
     render(){
         return(
         <div className="ui segment">
@@ -67,6 +72,8 @@ class Search extends React.Component{
         )
     }
 }
+
+//Validation for form values
 const validate = (formValues) => {
     const errors = {};
     if(!formValues.Search){
@@ -76,6 +83,7 @@ const validate = (formValues) => {
     return errors;
 }
 
+//Grabs state out of the auth piece of state
 const mapStateToProps = (state) => {
     return{
         github: state.github

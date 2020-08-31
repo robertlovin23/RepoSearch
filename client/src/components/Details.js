@@ -4,12 +4,14 @@ import {fetchRepo} from '../actions';
 
 class Details extends React.Component{
 
+    // Fetchs repositories using the owners name and repository name
     componentDidMount(){
         if(this.props.match.params){
             this.props.fetchRepo(this.props.match.params.owner, this.props.match.params.repo)
         }
     }
 
+    //Renders github repository details if not undefined
     render(){
         console.log(this.props)
         if(Object.keys(this.props.github).length === 0 || !this.props.github.owner){
