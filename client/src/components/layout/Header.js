@@ -6,7 +6,7 @@ class Header extends React.Component{
         return(
             <div className="ui menu">
                 <div className="header item">
-                    <Link to={'/'}>RepoSearch</Link>
+                    <Link to={'/'} style={{textDecoration: 'none'}}>RepoSearch</Link>
                 </div>
             </div>
         )
