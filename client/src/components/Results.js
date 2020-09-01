@@ -44,7 +44,7 @@ class Results extends React.Component{
                         <div className="ui fluid card" key={index}>  
                             <div className="content">
                                 <div className="header">
-                                    <h1>{git.name}</h1>
+                                    <h2>{git.name}</h2>
                                 </div>
                                 <div className="description">
                                     <p>{git.description}</p>
