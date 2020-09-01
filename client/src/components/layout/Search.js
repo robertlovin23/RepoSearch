@@ -48,6 +48,9 @@ class Search extends React.Component{
                     <option value="CSS3">CSS3</option>
                     <option value="Rust">Rust</option>
                     <option value="Dart">Dart</option>
+                    <option value="Git">Git</option>
+                    <option value="R">R</option>
+                    <option value="GoLang">Go</option>
                 </select>
             </div>
         )
