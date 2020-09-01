@@ -37,7 +37,7 @@ class Details extends React.Component{
     }
 }
 
-
+//Grabs state out of github piece of state
 const mapStateToProps = (state) => {
     return{
         github: state.github
